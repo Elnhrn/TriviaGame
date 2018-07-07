@@ -138,7 +138,7 @@ $(document).ready(function () {
             $(".reset").html("START OVER");
         } else {
             key++;
-            setTimeout(showQuestion, 1000);
+            setTimeout(showQuestion, 5000);
         }
     }
 
