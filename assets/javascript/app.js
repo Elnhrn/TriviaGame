@@ -56,7 +56,7 @@ $(document).ready(function () {
             trivia: "What do millenials like to eat instead of saving for a house?",
             choices: ["Avocado toast", "Goat cheese", "Free-range chicken"],
             answer: "Avocado toast",
-            img: "assets/images/avocado.jpg"
+            img: "assets/images/avocado.JPG"
         },
         9: {
             trivia: "What is the new way to 'ghost' someone on dating apps?",
