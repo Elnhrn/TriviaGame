@@ -84,9 +84,9 @@ $(document).ready(function () {
     function countDown() {
         timeLeft--;
         if (timeLeft > 9) {
-            $("#timer").css("display","block").html("TIME<br>REMAINING<br><div id='timernum'>:" + timeLeft + "</div>");
+            $("#timer").css("display", "block").html("TIME<br>REMAINING<br><div id='timernum'>:" + timeLeft + "</div>");
         } else if (timeLeft < 10 && timeLeft > -1) {
-            $("#timer").css("display","block").html("TIME<br>REMAINING<br><div id='timernum'>:0" + timeLeft + "</div>");
+            $("#timer").css("display", "block").html("TIME<br>REMAINING<br><div id='timernum'>:0" + timeLeft + "</div>");
         } else {
             timesUp();
         }
@@ -97,7 +97,7 @@ $(document).ready(function () {
         $(".btn").remove();
         $("#trivia-section").css("display", "block");
         $("#timer #qa-here").empty();
-        $("#timer").css("display","block").html("TIME<br>REMAINING<br><div id='timernum'>:" + timeLeft + "</div>");
+        $("#timer").css("display", "block").html("TIME<br>REMAINING<br><div id='timernum'>:" + timeLeft + "</div>");
         intervalId = setInterval(countDown, 1000);
         showMeTrivia();
     }
@@ -122,24 +122,27 @@ $(document).ready(function () {
         var addImg = $("<p><img class='meme' src='" + triviaGame[key].img + "'></p>");
         $("#qa-here").append(msg, correctAnswer, addImg);
         unanswered++;
-        resultPg();
-    }
-
-    function resultPg() {
         if (key === 10) {
-            var col1 = "<div class='result'><h3 id='right'>CORRECT</H3><h3>" + correct + "</h3></div>";
-            var col2 = "<div class='result'><h3 id='wrong'>INCORRECT</H3><h3>" + wrong + "</h3></div>";
-            var col3 = "<div class='result'><h3>UNANSWERED</h3><h3>" + unanswered + "</h3></div>";
-            var reset = $("<div>").addClass("reset");
             clearInterval(intervalId);
-            $("#qa-here").html("<h1>RESULTS</H1>");
-            $("#qa-here").append(col1, col2, col3);
-            $("#qa-here").append(reset);
-            $(".reset").html("START OVER");
+            setTimeout(resultPg, 5000);
+            return;
         } else {
+            clearInterval(intervalId);
             key++;
             setTimeout(showQuestion, 5000);
         }
+    }
+
+    function resultPg() {
+        var col1 = "<div class='result'><h3 id='right'>CORRECT</H3><h3>" + correct + "</h3></div>";
+        var col2 = "<div class='result'><h3 id='wrong'>INCORRECT</H3><h3>" + wrong + "</h3></div>";
+        var col3 = "<div class='result'><h3>UNANSWERED</h3><h3>" + unanswered + "</h3></div>";
+        var reset = $("<div>").addClass("reset");
+        clearInterval(intervalId);
+        $("#qa-here").html("<h1>RESULTS</H1>");
+        $("#qa-here").append(col1, col2, col3);
+        $("#qa-here").append(reset);
+        $(".reset").html("START OVER");
     }
 
     // on click events
@@ -155,15 +158,22 @@ $(document).ready(function () {
         if ($(this).html() === triviaGame[key].answer) {
             $("#qa-here").html("<h3 id='right'>CORRECT!</h3><p>The answer is <strong>" + triviaGame[key].answer + "</strong>.</p><p><img class='meme' src='" + triviaGame[key].img + "'></p>");
             correct++;
-        } else if ($(this).html() != triviaGame[key].answer) {
+        } else {
             $("#qa-here").html("<h3 id='wrong'>WRONG!</h3><p>The correct answer is <strong>" + triviaGame[key].answer + "</strong>. Here's a participation ribbon.</p><p><img class='meme' src='" + triviaGame[key].img + "'></p>");
             wrong++;
         }
+        if (key === 10) {
+            clearInterval(intervalId);
+            setTimeout(resultPg, 5000);
+            return;
+        } else {
+            key++;
+        }
         clearInterval(intervalId);
-        resultPg();
+        setTimeout(showQuestion, 5000);
     });
 
-    $(document).on("click", ".reset", function() {
+    $(document).on("click", ".reset", function () {
         timeLeft = 20;
         correct = 0;
         wrong = 0;
