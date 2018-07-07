@@ -1,0 +1,136 @@
+body {
+    margin: 20px auto;
+    text-align: center;
+    background-image: url("../images/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 20px;
+}
+
+button {
+    margin: 5px;
+}
+
+h3 {
+    font-weight: bolder;
+}
+
+.container {
+    width: 750px;
+}
+
+.display-4 {
+    margin-bottom: 20px;
+}
+
+.questions {
+    margin: 30px;
+}
+
+.list-group {
+    margin: 0 auto;
+    width: 400px;
+}
+
+/* with hover effect */
+
+.list-group-item:hover {
+    background-color: rgb(24, 131, 167);
+    font-weight: bolder;
+    cursor: pointer;
+    color: white;
+}
+
+.list-group-item {
+    margin-bottom: 10px;
+}
+
+.meme {
+    width: 400px;
+}
+
+.startlogo {
+    width: 600px;
+    margin-top: 100px;
+}
+
+.start {
+    width: 200px;
+    background-color: yellowgreen;
+    font-size: 30px;
+    color: white;
+    font-weight: bolder;
+}
+
+.moveLogo {
+    margin: 0 0 0 70px;
+    width: 350px;
+    float: left;
+}
+
+#timer {
+    color: white;
+    font-size: 25px;
+    font-weight: bolder;
+    line-height: 1;
+    display: inline-block;
+    margin: 50px 0 0 90px;
+    display: none;
+}
+
+#timernum {
+    color: red;
+    font-size: 30px;
+    font-weight: bolder;
+    line-height: 1;
+    display: inline-block;
+    background-color: black;
+    border: white 1px solid;
+    width: 70px;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+#trivia-section {
+    margin-top: 20px;
+    background-color: white;
+    display: none;
+    padding-bottom: 15px;
+    border-radius: 15px;
+}
+
+#right {
+    margin-top: 20px;
+    color: lightseagreen;
+}
+
+#wrong {
+    margin-top: 20px;
+    color: red;
+}
+
+#time {
+    margin-top: 20px;
+    color: darkgray;
+}
+
+.reset {
+    width: 300px;
+    background-color: dodgerblue;
+    font-size: 30px;
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
+    margin: 20px auto 10px;
+}
+
+.result {
+    display: inline-block;
+    margin: 20px 20px 0;
+}
+
+h1 {
+    font-weight: bolder;
+    margin-top: 20px;
+}
