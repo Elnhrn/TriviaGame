@@ -136,7 +136,7 @@ $(document).ready(function () {
     function resultPg() {
         var col1 = "<div class='result'><h3 id='right'>CORRECT</H3><h3>" + correct + "</h3></div>";
         var col2 = "<div class='result'><h3 id='wrong'>INCORRECT</H3><h3>" + wrong + "</h3></div>";
-        var col3 = "<div class='result'><h3>UNANSWERED</h3><h3>" + unanswered + "</h3></div>";
+        var col3 = "<div class='result'><h3 id='time'>UNANSWERED</h3><h3>" + unanswered + "</h3></div>";
         var reset = $("<div>").addClass("reset");
         clearInterval(intervalId);
         $("#qa-here").html("<h1>RESULTS</H1>");
